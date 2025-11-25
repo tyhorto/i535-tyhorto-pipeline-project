@@ -1,0 +1,1 @@
+SELECT YEAR, TEAM, RANK, SEED, POSTSEASON FROM `fa25-i535-tyhorto-pipeline.ncaa_flat.ncaa_cleaned` where POSTSEASON = 'Champions' order by YEAR DESC limit 10
