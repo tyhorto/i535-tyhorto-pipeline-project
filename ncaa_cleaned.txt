@@ -1,0 +1,11 @@
+replacemismatched col: SEED type: Integer with: null text: ''
+rename type: manual mapping: [POSTSEASON,'_POSTSEASON']
+derive type: single value: IF(OR(_POSTSEASON = 'N\/A', _POSTSEASON = 'NA'), NULL(), _POSTSEASON) as: 'POSTSEASON'
+drop col: _POSTSEASON action: Drop
+derive type: single value: 2000 + SUBSTITUTE(SUBSTRING(source_file, FIND(source_file, 'cbb', true, 0), RIGHTFIND(source_file, '.', true, 0)), 'cbb', '', true) as: 'YEAR'
+settype col: YEAR lockDataType: true type: Integer
+drop col: source_file action: Drop
+rename type: manual mapping: [RANK,'_RANK']
+derive type: single value: IF(_RANK > 25, NULL(), _RANK) as: 'RANK'
+drop col: _RANK action: Drop
+rename type: manual mapping: [Team,'TEAM']
