@@ -1,0 +1,7 @@
+CREATE OR REPLACE TABLE `fa25-i535-tyhorto-pipeline.ncaa_flat.combined_ncaa` AS
+SELECT t.RANK,t.Team,t.CONF,t.G,t.W,t.ADJOE,t.ADJDE,t.BARTHAG,t.EFG_O,t.EFG_D,
+t.TOR,t.TORD,t.ORB,t.DRB,t.FTR,t.FTRD,t._2P_O,t._2P_D,t._3P_O,t._3P_D,t.ADJ_T,
+t.WAB,t.POSTSEASON,t.SEED,
+_FILE_NAME AS source_file
+FROM
+`fa25-i535-tyhorto-pipeline.ncaa_flat.ncaa_external` AS t;
