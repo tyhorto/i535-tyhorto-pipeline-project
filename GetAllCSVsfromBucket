@@ -1,0 +1,5 @@
+CREATE OR REPLACE EXTERNAL TABLE `fa25-i535-tyhorto-pipeline.ncaa_flat.ncaa_external`
+OPTIONS (
+  format = 'CSV',
+  uris = ['gs://fa25-i535-tyhorto-pipeline/ncaa/*.csv']
+);
